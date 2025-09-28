@@ -40,10 +40,13 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-cyan-01: var(--cyan-01);
+  --color-cyan-02: var(--cyan-02);
   --color-white-01: var(--white-01);
   --color-gray-01: var(--gray-01);
   --color-gray-02: var(--gray-02);
   --color-black-01: var(--black-01);
+  --color-green-01: var(--green-01);
+  --color-red-01: var(--red-01);
 }
 
 :root {
@@ -80,10 +83,14 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --cyan-01: oklch(0.6878 0.09 209.51);
+  --cyan-02: oklch(0.637 0.09 209.51);
   --white-01: oklch(1 0 0);
   --gray-01: oklch(0.9821 0 0);
   --gray-02: oklch(0.699 0.0398 232.23);
   --black-01: oklch(0.2435 0 0);
+  --green-01: oklch(0.9457 0.0866 155.03);
+  --red-01: oklch(0.8489 0.0833 32.6);
+  --shadow: 0px 2.03px 10.14px 0px #0000001a;
 }
 
 .dark {
