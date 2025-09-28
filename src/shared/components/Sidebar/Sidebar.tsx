@@ -11,7 +11,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarHeader,
-} from "@/components/ui/sidebar";
+} from "@shared/components/ui/sidebar";
 
 export default function Sidebar() {
   return (
