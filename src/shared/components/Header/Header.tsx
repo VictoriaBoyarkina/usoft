@@ -1,6 +1,6 @@
 import { Typography } from "../ui/typography";
-import MessageIcon from "@/assets/message.svg?react";
-import UserIcon from "@/assets/user.svg?react";
+import MessageIcon from "@shared/assets/message.svg?react";
+import UserIcon from "@shared/assets/user.svg?react";
 
 export default function Header() {
   return (

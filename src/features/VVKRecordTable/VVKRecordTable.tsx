@@ -1,4 +1,4 @@
-import { VVKFields } from "@/entities/VVK/types";
+import { VVKFields } from "@entities/VVK/types";
 import { data } from "./mock";
 import {
   flexRender,
@@ -19,15 +19,15 @@ import {
   TableHeader,
   TableRow,
 } from "@shared/components/ui/table";
-import { Input } from "@/shared/components/ui/input";
-import { Button } from "@/shared/components/ui/button";
+import { Input } from "@shared/components/ui/input";
+import { Button } from "@shared/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/shared/components/ui/select";
+} from "@shared/components/ui/select";
 import { columns } from "./columns";
 
 const TABLE_COLUMN_LABEL_MAP = {

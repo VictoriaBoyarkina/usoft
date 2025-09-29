@@ -1,10 +1,10 @@
-import BookIcon from "@/assets/book.svg?react";
-import HomeIcon from "@/assets/home.svg?react";
-import InfoIcon from "@/assets/info.svg?react";
-import NoteIcon from "@/assets/note.svg?react";
-import PieChartIcon from "@/assets/piechart.svg?react";
-import SettingsIcon from "@/assets/settings.svg?react";
-import TubeIcon from "@/assets/tube.svg?react";
+import BookIcon from "@shared/assets/book.svg?react";
+import HomeIcon from "@shared/assets/home.svg?react";
+import InfoIcon from "@shared/assets/info.svg?react";
+import NoteIcon from "@shared/assets/note.svg?react";
+import PieChartIcon from "@shared/assets/piechart.svg?react";
+import SettingsIcon from "@shared/assets/settings.svg?react";
+import TubeIcon from "@shared/assets/tube.svg?react";
 import {
   Sidebar as SidebarShadcn,
   SidebarContent,

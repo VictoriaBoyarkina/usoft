@@ -1,7 +1,7 @@
 import { SidebarProvider } from "@shared/components/ui/sidebar";
 import { Sidebar } from "@shared/components/Sidebar";
 import { Header } from "@shared/components/Header";
-import { VVKRecords } from "@/pages/VVKRecords";
+import { VVKRecords } from "@pages/VVKRecords";
 
 export default function Layout() {
   return (

@@ -1,4 +1,4 @@
-import type { VVKRecord } from "@/entities/VVK/types";
+import type { VVKRecord } from "@entities/VVK/types";
 
 export const data: VVKRecord[] = [
   {
