@@ -12,12 +12,16 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from "@shared/components/ui/sidebar";
+import { RouterPaths } from "@shared/config/pagePaths";
+import { Link } from "react-router";
 
 export default function Sidebar() {
   return (
     <SidebarShadcn side="left">
       <SidebarHeader className="py-7 items-center">
-        <HomeIcon />
+        <Link to={RouterPaths.VVK_RECORDS}>
+          <HomeIcon />
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup className="py-12  items-center gap-y-10">

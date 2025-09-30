@@ -10,6 +10,7 @@ export enum VVKFields {
 }
 
 export type VVKRecord = {
+  id: string;
   [VVKFields.SOLDIER]: {
     fio: string;
     birthdayDate: string;

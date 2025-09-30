@@ -1,3 +1,5 @@
+import { cn } from "@shared/lib/utils";
+
 interface TypographyProps {
   type?:
     | "h2"
@@ -7,7 +9,8 @@ interface TypographyProps {
     | "medium_bold"
     | "small"
     | "cap";
-  children: string | string[];
+  children: string | number | string[];
+  className?: string;
 }
 
 const classNames = {
@@ -20,8 +23,12 @@ const classNames = {
   cap: "text-[10px] font-normal",
 };
 
-function Typography({ type = "medium_regular", children }: TypographyProps) {
-  return <span className={classNames[type]}>{children}</span>;
+function Typography({
+  type = "medium_regular",
+  className,
+  children,
+}: TypographyProps) {
+  return <span className={cn(classNames[type], className)}>{children}</span>;
 }
 
 export { Typography };

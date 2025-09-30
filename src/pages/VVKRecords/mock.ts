@@ -2,6 +2,7 @@ import type { VVKRecord } from "@entities/VVK/types";
 
 export const data: VVKRecord[] = [
   {
+    id: "12345098765",
     soldier: {
       fio: "Иванов А.А.",
       birthdayDate: "19.03.1984",
@@ -43,6 +44,7 @@ export const data: VVKRecord[] = [
     },
   },
   {
+    id: "12345976765",
     soldier: {
       fio: "Сидоров А.А.",
       birthdayDate: "19.03.1984",
@@ -84,6 +86,7 @@ export const data: VVKRecord[] = [
     },
   },
   {
+    id: "12342346765",
     soldier: {
       fio: "Петров А.А.",
       birthdayDate: "19.03.1984",

@@ -2,21 +2,11 @@ import { VVKFields, type VVKRecord } from "@entities/VVK/types";
 import { type ColumnDef } from "@tanstack/react-table";
 import { Typography } from "@shared/components/ui/typography";
 import { Badge } from "@shared/components/ui/badge";
-const VKKDecisionTextMap = {
-  approved: "Утверждено",
-  rejected: "Отказ",
-};
-
-const VMUTextMap = {
-  start: "Начато",
-  rejected: "Отказ",
-};
-
-const badgeMap = {
-  approved: "success" as const,
-  start: "success" as const,
-  rejected: "error" as const,
-};
+import {
+  badgeMap,
+  VKKDecisionTextMap,
+  VMUTextMap,
+} from "@entities/VVK/constants";
 
 export const columns: ColumnDef<VVKRecord>[] = [
   {

@@ -1,5 +1,5 @@
 import { VVKFields } from "@entities/VVK/types";
-import { data } from "./mock";
+import { data } from "../../pages/VVKRecords/mock";
 import {
   flexRender,
   getCoreRowModel,
@@ -29,6 +29,9 @@ import {
   SelectValue,
 } from "@shared/components/ui/select";
 import { columns } from "./columns";
+import { buildPath } from "@shared/helpers/common";
+import { RouterPaths } from "@shared/config/pagePaths";
+import { useNavigate } from "react-router";
 
 const TABLE_COLUMN_LABEL_MAP = {
   [VVKFields.SOLDIER]: "Военнослужащий",
@@ -47,8 +50,7 @@ export default function VVKRecordTable() {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
 
-  console.log(columnFilters);
-  console.log(columnVisibility);
+  const navigate = useNavigate();
 
   const table = useReactTable({
     data,
@@ -128,25 +130,31 @@ export default function VVKRecordTable() {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                  className="px-2 border-y-2"
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className="align-top px-2 first:pl-6 last:lr-6 py-3 border-x-2 first:border-l-0 last:border-r-0"
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                const { id } = row.original;
+                return (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                    className="px-2 border-y-2"
+                    onClick={() =>
+                      navigate(buildPath(RouterPaths.VVK_RECORD, { id }))
+                    }
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell
+                        key={cell.id}
+                        className="align-top px-2 first:pl-6 last:lr-6 py-3 border-x-2 first:border-l-0 last:border-r-0"
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                );
+              })
             ) : (
               <TableRow>
                 <TableCell

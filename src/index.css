@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -9,7 +10,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--color-black-01);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -91,6 +92,7 @@
   --green-01: oklch(0.9457 0.0866 155.03);
   --red-01: oklch(0.8489 0.0833 32.6);
   --shadow: 0px 2.03px 10.14px 0px #0000001a;
+  --font-sans-custom: "Inter", sans-serif;
 }
 
 .dark {
@@ -133,5 +135,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans-custom);
   }
 }
