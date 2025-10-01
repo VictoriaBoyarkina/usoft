@@ -92,6 +92,7 @@ export default function VVKRecordTable() {
           </SelectContent>
         </Select>
         <Input
+          searchIcon
           placeholder="Введите имя"
           value={
             (table.getColumn(columnFilters)?.getFilterValue() as string) ?? ""
