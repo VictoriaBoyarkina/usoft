@@ -1,12 +1,12 @@
-import { VVKFields, type VVKRecord } from "@entities/VVK/types";
-import { type ColumnDef } from "@tanstack/react-table";
-import { Typography } from "@shared/components/ui/typography";
-import { Badge } from "@shared/components/ui/badge";
 import {
   badgeMap,
   VKKDecisionTextMap,
   VMUTextMap,
 } from "@entities/VVK/constants";
+import { VVKFields, type VVKRecord } from "@entities/VVK/types";
+import { Badge } from "@shared/components/ui/badge";
+import { Typography } from "@shared/components/ui/typography";
+import { type ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<VVKRecord>[] = [
   {
@@ -167,7 +167,7 @@ export const columns: ColumnDef<VVKRecord>[] = [
     header: () => {
       return (
         <div className="flex flex-col whitespace-pre-line">
-          <Typography type="medium_bold">ВМУ проведения ВВК</Typography>
+          <Typography type="medium_bold">ВМУ проведения ВВК</Typography>
           <Typography type="small">Дата начала/отказа</Typography>
           <Typography type="small">Примечания</Typography>
         </div>
@@ -208,7 +208,7 @@ export const columns: ColumnDef<VVKRecord>[] = [
       return (
         <div className="flex flex-col whitespace-pre-line">
           <Typography type="medium_bold">
-            Дата и номер заключения ВВК
+            Дата и номер заключения ВВК
           </Typography>
         </div>
       );

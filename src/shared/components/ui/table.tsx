@@ -1,7 +1,7 @@
+import { type ComponentProps } from "react";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+function Table({ className, ...props }: ComponentProps<"table">) {
   return (
     <div
       data-slot="table-container"
@@ -16,7 +16,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   );
 }
 
-function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
+function TableHeader({ className, ...props }: ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"

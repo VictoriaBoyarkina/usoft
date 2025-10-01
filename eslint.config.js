@@ -1,236 +1,111 @@
-export default {
-  env: {
-    browser: true,
-    commonjs: true,
-  },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/recommended",
-    "plugin:prettier/recommended",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-  ],
-  globals: {},
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-      jsx: true,
-    },
-    sourceType: "module",
-  },
-  ignorePatterns: [
-    "/src/libs/*",
-    "/src/features/JsonView/viewers/default/*",
-    "/src/features/SearchMatches/*",
-  ],
-  plugins: ["import", "react", "prettier", "@typescript-eslint"],
-  rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        trailingComma: "all",
-        arrowParens: "always",
-        endOfLine: "auto",
-      },
-    ],
+// eslint.config.js
+import js from "@eslint/js";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import importPlugin from "eslint-plugin-import";
+import prettier from "eslint-plugin-prettier";
 
-    // Кастомные правила ESLint
-    // 0 -- выключено
-    // 1 -- включено, при нарушении будет warning
-    // 2 -- включено, при нарушении будет ошибка
+export default [
+  // Базовые рекомендуемые правила
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
 
-    "react/jsx-boolean-value": [2, "never"],
-    "react/jsx-curly-brace-presence": 2,
-    "react/jsx-key": 2,
-    "react/jsx-fragments": ["warn"],
-    "react/no-children-prop": 0,
-    "react/prop-types": 0,
-    "no-console": 1,
-    "@typescript-eslint/no-empty-function": 0,
-    "@typescript-eslint/ban-ts-comment": 0,
-    "@typescript-eslint/no-this-alias": 0,
-    "@typescript-eslint/no-explicit-any": 1,
-    "@typescript-eslint/explicit-module-boundary-types": 1,
-    "@typescript-eslint/no-namespace": 0,
-    "react/jsx-filename-extension": [2, { extensions: [".jsx", ".tsx"] }],
-    "prefer-arrow-callback": ["error"],
-    "use-isnan": ["error"],
-    "no-cond-assign": ["error", "always"],
-    "no-var": ["error"],
-    "no-param-reassign": ["error", { props: false }],
-    "no-use-before-define": ["error"],
-    "no-await-in-loop": ["error"],
-    "no-duplicate-imports": ["error"],
-    "no-constructor-return": ["error"],
-    "no-promise-executor-return": ["error"],
-    "no-self-compare": ["error"],
-    "no-unmodified-loop-condition": ["error"],
-    "no-unreachable-loop": ["error"],
-    "no-unused-private-class-members": ["warn"],
-    "require-atomic-updates": ["error"],
-    curly: ["error"],
-    "default-case": ["warn"],
-    "default-case-last": ["error"],
-    eqeqeq: ["error"],
-    "init-declarations": ["error"],
-    "no-alert": ["error"],
-    "no-caller": ["error"],
-    "no-else-return": ["error"],
-    "no-constant-binary-expression": ["error"],
-    "no-empty-static-block": ["warn"],
-    "no-eq-null": ["error"],
-    "no-eval": ["error"],
-    "no-extend-native": ["error"],
-    "no-extra-bind": ["error"],
-    "no-extra-label": ["error"],
-    "no-floating-decimal": ["warn"],
-    "no-empty-function": ["warn"],
-    "no-implicit-globals": ["error"],
-    "no-implied-eval": ["error"],
-    "no-invalid-this": ["error"],
-    "no-iterator": ["error"],
-    "no-label-var": ["error"],
-    "no-lone-blocks": ["error"],
-    "no-lonely-if": ["error"],
-    "no-loop-func": ["warn"],
-    "no-nested-ternary": ["error"],
-    "no-new": ["warn"],
-    "no-new-func": ["error"],
-    "no-new-object": ["error"],
-    "no-new-wrappers": ["error"],
-    "no-proto": ["error"],
-    "no-restricted-syntax": [
-      "error",
-      {
-        selector: "FunctionDeclaration",
-        message: "Вместо обычных функций используй стрелочные",
-      },
-    ],
-    "no-return-assign": ["error"],
-    "no-return-await": ["error"],
-    "no-script-url": ["error"],
-    "no-sequences": ["error"],
-    "no-shadow": ["error"],
-    "no-unneeded-ternary": ["error"],
-    "no-unused-expressions": ["error"],
-    "no-useless-call": ["error"],
-    "no-useless-computed-key": ["error"],
-    "no-useless-concat": ["error"],
-    "no-useless-constructor": ["warn"],
-    "no-useless-rename": ["error"],
-    "no-useless-return": ["error"],
-    "object-shorthand": ["error"],
-    "prefer-object-has-own": ["error"],
-    "prefer-object-spread": ["error"],
-    "prefer-const": ["warn"],
-    "prefer-promise-reject-errors": ["warn"],
-    "prefer-spread": ["error"],
-    "prefer-template": ["error"],
-    radix: ["error"],
-    "require-await": ["warn"],
-    "spaced-comment": ["error"],
-    "symbol-description": ["warn"],
-    yoda: ["warn"],
-    "import/newline-after-import": 2,
-    "import/exports-last": 2,
-    "import/first": 2,
-    "padding-line-between-statements": [
-      "warn",
-      {
-        blankLine: "always",
-        prev: ["block", "if", "for", "do", "const", "let"],
-        next: "*",
-      },
-      {
-        blankLine: "always",
-        prev: "*",
-        next: ["block", "if", "for", "do", "const", "let", "return"],
-      },
-      {
-        blankLine: "any",
-        prev: ["const", "let"],
-        next: ["const", "let"],
-      },
-    ],
-    "import/no-cycle": ["error"],
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "object",
-          "sibling",
-          "index",
-          "type",
-          "unknown",
-        ],
-      },
-    ],
-    "no-restricted-imports": [
-      "error",
-      {
-        paths: [
-          {
-            name: "date-fns",
-            message:
-              "Используй импорт конкретных функций, а не всей библиотеки",
-          },
-          {
-            name: "date-fns/index",
-            message:
-              "Используй импорт конкретных функций, а не всей библиотеки",
-          },
-          {
-            name: "react-router",
-            message: "Используй импорт из react-router-dom",
-          },
-          {
-            name: "react-router/index",
-            message: "Используй импорт из react-router-dom",
-          },
-        ],
-        patterns: [
-          {
-            group: [
-              "modules/epk/*",
-              "modules/ppk/*",
-              "modules/usk/*",
-              "modules/elgo/*",
-              "!modules/epk",
-              "!modules/ppk",
-              "!modules/usk",
-              "!modules/elgo",
-            ],
-            message: "Импортируй из index файла",
-          },
-          {
-            group: ["internal_*"],
-            message:
-              "Не используй внутренности модуля, импортируй из index файла",
-          },
-        ],
-      },
-    ],
-  },
-  settings: {
-    react: {
-      version: "detect",
+  // React конфигурация
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
     },
-    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"],
+    rules: {
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
     },
-    "import/resolver": {
-      typescript: {
-        project: "./tsconfig.json",
+    settings: {
+      react: {
+        version: "detect",
       },
     },
   },
-};
+
+  // Основные правила
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2020,
+      },
+    },
+    plugins: {
+      import: importPlugin,
+      prettier,
+    },
+    rules: {
+      // Общие правила
+      "no-console": "warn",
+      "prefer-const": "error",
+      "no-var": "error",
+      "object-shorthand": "error",
+
+      // Import правила
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          "newlines-between": "never",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
+
+      // TypeScript правила
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
+
+      // React правила
+      "react/jsx-key": "error",
+      "react/prop-types": "off",
+
+      // React Hooks
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react",
+              importNames: ["default"],
+              message:
+                "Please use named imports from 'react' instead of default import.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+
+  // Игнорируемые файлы
+  {
+    ignores: ["node_modules/", "dist/", "build/", "*.config.js", "coverage/"],
+  },
+];

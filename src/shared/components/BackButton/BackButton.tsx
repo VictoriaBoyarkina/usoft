@@ -1,14 +1,14 @@
 import { cn } from "@shared/lib/utils";
+import { useNavigate } from "react-router";
 import { Button } from "../ui/button";
 import { Typography } from "../ui/typography";
-import { useNavigate } from "react-router";
 
 interface BackButtonProps {
   className?: string;
 }
 
 export default function BackButton({ className }: BackButtonProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Button
       className={cn("w-max p-0", className)}

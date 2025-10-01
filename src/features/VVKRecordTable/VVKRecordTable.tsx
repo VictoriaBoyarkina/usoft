@@ -1,5 +1,24 @@
 import { VVKFields } from "@entities/VVK/types";
-import { data } from "../../pages/VVKRecords/mock";
+import { Button } from "@shared/components/ui/button";
+import { Input } from "@shared/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@shared/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@shared/components/ui/table";
+import { Typography } from "@shared/components/ui/typography";
+import { RouterPaths } from "@shared/config/pagePaths";
+import { buildPath } from "@shared/helpers/common";
 import {
   flexRender,
   getCoreRowModel,
@@ -9,29 +28,10 @@ import {
   type SortingState,
   type VisibilityState,
 } from "@tanstack/react-table";
-import { Typography } from "@shared/components/ui/typography";
 import { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@shared/components/ui/table";
-import { Input } from "@shared/components/ui/input";
-import { Button } from "@shared/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@shared/components/ui/select";
-import { columns } from "./columns";
-import { buildPath } from "@shared/helpers/common";
-import { RouterPaths } from "@shared/config/pagePaths";
 import { useNavigate } from "react-router";
+import { data } from "../../pages/VVKRecords/mock";
+import { columns } from "./columns";
 
 const TABLE_COLUMN_LABEL_MAP = {
   [VVKFields.SOLDIER]: "Военнослужащий",
@@ -84,7 +84,7 @@ export default function VVKRecordTable() {
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  <SelectItem value={column.id}>
+                  <SelectItem key={column.id} value={column.id}>
                     {TABLE_COLUMN_LABEL_MAP[column.id as VVKFields]}
                   </SelectItem>
                 );
